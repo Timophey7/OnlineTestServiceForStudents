@@ -1,0 +1,46 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+  cache:
+    type: redis
+  data:
+    redis:
+      port: 6379
+      host: localhost
+      password: ZmRlZWRhc3Nl
+  application:
+    name: security-service
+  datasource:
+    url: jdbc:postgresql://localhost:5433/security-service?user=postgres&password=test
+    username: postgres
+    password: test
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+server:
+  port: 8095
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+management:
+  endpoints.web.exposure.include: 'prometheus, health'
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true

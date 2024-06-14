@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="student:${students}">
+  <p>ФИО: <span th:text="${student.fio}"></span> - <span th:text="${student.grade}"></span></p>
+</div>
+</body>
+</html>

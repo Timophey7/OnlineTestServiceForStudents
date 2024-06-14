@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div >
+    <h2>Регистрация</h2>
+    <form th:action="@{/v1/test/security/register}" method="post" th:object="${user}">
+        <div>
+            <label for="username">Введите имя пользователя</label>
+            <input type="text" name="username" id="username" th:field="*{username}">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="${username}" ></p>
+        </div>
+        <div>
+            <label for="firstName">Введите имя</label>
+            <input type="text" name="firstName" id="firstName" th:field="*{firstName}">
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="${firstName}" ></p>
+        </div>
+        <div>
+            <label for="lastName">Введите фамилию</label>
+            <input type="text" name="lastName" id="lastName" th:field="*{lastName}">
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="${lastName}" ></p>
+        </div>
+        <div>
+            <label for="email">Введите почту пользователя</label>
+            <input type="text" name="email" id="email" th:field="*{email}">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="${email}" ></p>
+        </div>
+        <div>
+            <label for="password">Введите пароль</label>
+            <input type="password" name="password" id="password" th:field="*{password}">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="${password}" ></p>
+        </div>
+        <div>
+            <label for="phone">Введите номер телефона</label>
+            <input type="text" name="phone" id="phone" th:field="*{phone}">
+            <p th:if="${#fields.hasErrors('phone')}" th:errors="${phone}"></p>
+        </div>
+        <div>
+            <label th:for="*{isTeacher}">Я учитель</label>
+            <input type="checkbox" th:field="*{isTeacher}"/>
+        </div>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header>
+    <div>
+        <a th:href="@{/v1/test/security/register}" >Зарегестрироваться</a>
+        <a th:href="@{/v1/test/security/login}">Логин</a>
+        <a th:href="@{/v1/test/personalArea}" >Личный кабинет</a>
+    </div>
+</header>
+<div th:each="onTest:${tests}" >
+    <p th:text="${onTest.name}"></p>
+    <a th:href="@{/v1/test/passTest/{uniqueCode}(uniqueCode=${onTest.uniqueCode})}" >Пройти тест</a>
+</div>
+<body>
+</body>
+</html>

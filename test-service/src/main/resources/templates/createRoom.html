@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/v1/test/createRoom}" method="post" th:object="${room}">
+    <div>
+        <label for="roomName">Введите название класса</label>
+        <input type="text" id="roomName" name="roomName" th:field="*{roomName}">
+        <p th:if="*{#fields.hasErrors('roomName')}" th:errors="*{roomName}"></p>
+    </div>
+    <input type="submit" value="Создать">
+</form>
+</body>
+</html>

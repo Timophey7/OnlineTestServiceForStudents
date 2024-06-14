@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${message}"></p>
+<form th:action="@{/v1/test/createOption/{uniqueCode}(uniqueCode=${uniqueCode})}" method="post" th:object="${option}" >
+    <div>
+        <label for="text"></label>
+        <input type="text" name="text" id="text" th:field="*{text}">
+        <p th:if="${#fields.hasErrors('text')}" th:error="*{text}"></p>
+    </div>
+    <div>
+        <label th:for="*{isCorrect}">Ответ правильный</label>
+        <input type="checkbox" th:field="*{isCorrect}"/>
+    </div>
+    <input type="submit" value="Сохранить">
+    <a th:href="@{/v1/test/createSingleQuestion/{uniqueCode}(uniqueCode=${testUniqueCode})}" >Следующий вопрос</a>
+    <a th:href="@{/v1/test/personalArea}">Завершить сощдание теста</a>
+</form>
+</body>
+</html>

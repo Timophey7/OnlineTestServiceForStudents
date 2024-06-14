@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/v1/test/saveQuestion}" method="post" th:object="${question}">
+
+    <div>
+        <label for="text" >Введите название вопроса</label>
+        <input name="text" id="text" th:field="*{text}">
+        <p th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></p>
+    </div>
+
+    <input type="hidden" th:field="*{uniqueCode}">
+    <input type="hidden" th:field="*{type}">
+
+    <input type="submit" value="Создать">
+</form>
+<a th:href="@{/v1/test/personalArea}" >Закончить создание теста.</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Прохождение теста</title>
+</head>
+<body>
+<div th:if="${question != null}">
+    <h2>Вопрос:</h2>
+    <p th:text="${question.text}"></p>
+
+    <form method="post" th:action="@{/v1/test/answer/{testUniqueCode}(testUniqueCode=${question.test.uniqueCode})}">
+        <div th:each="option : ${options}">
+            <input type="radio" th:name="optionId" th:value="${option.id}" required>
+            <label th:for="${option.id}" th:text="${option.text}"></label><br>
+        </div>
+        <button type="submit">Следующий вопрос</button>
+    </form>
+</div>
+
+<div th:if="${question == null}">
+    <h3>Тест пройден!</h3>
+    <p>Перенаправление на страницу с результатами...</p>
+    <meta http-equiv="refresh" th:content="@{/v1/test/results/{testUniqueCode}(testUniqueCode=${question.test.uniqueCode})}"/>
+</div>
+</body>
+</html>

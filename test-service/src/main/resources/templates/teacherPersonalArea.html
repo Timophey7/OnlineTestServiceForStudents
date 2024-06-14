@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header>
+  <div th:object="${user}">
+    <h3>Информация о пользователе</h3>
+    <p th:text="*{firstName}"></p>
+    <p th:text="*{lastName}"></p>
+    <p th:text="*{email}"></p>
+  </div>
+</header>
+<body>
+<a th:href="@{/v1/test/createRoom}">Создать комнату</a>
+<div th:each="room:${rooms}">
+    <p th:text="${room.roomName}"></p>
+    <a th:href="@{/v1/test/roomInfo/{uniqueCode}(uniqueCode=${room.uniqueCode})}">Войти</a>
+</div>
+</body>
+</html>

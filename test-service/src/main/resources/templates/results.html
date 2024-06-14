@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты теста</title>
+</head>
+<body>
+<h2>Результаты теста</h2>
+<p>Тест: <span th:text="${result.testUniqueCode}"></span></p>
+<p>Всего вопросов: <span th:text="${result.allQuestions}"></span></p>
+<p>Правильных ответов: <span th:text="${result.rightAnswers}"></span></p>
+<p>Ваш процент выполнения: <span th:text="${result.percent}"></span>%</p>
+<p>Ваша оценка: <span th:text="${result.grade}"></span></p>
+<p>Студент: <span th:text="${result.fio}"></span></p>
+
+<a th:href="@{/v1/test/home}">Вернуться на главную страницу</a>
+</body>
+</html>

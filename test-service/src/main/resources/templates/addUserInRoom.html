@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить студента в комнату</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Добавить студента в комнату</h1>
+
+<form th:action="@{/v1/test/addUserInRoom}" method="post">
+    <div>
+        <label for="uniqueCode">Код комнаты:</label>
+        <input type="text" id="uniqueCode" name="uniqueCode" th:value="${uniqueCode}">
+    </div>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h2>Вход</h2>
+    <form th:action="@{/v1/test/security/verification}" method="get" th:object="${authentication}">
+        <div>
+            <label for="email">Введите почту</label>
+            <input type="text" id="email" name="email" th:field="*{email}" placeholder="email">
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></p>
+        </div>
+        <div>
+            <label for="password">Введите пароль</label>
+            <input type="password" id="password" name="password" th:field="*{password}" placeholder="password">
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></p>
+        </div>
+        <input type="submit" value="Войти">
+        <a th:href="@{/v1/test/security/register}">Зарегистрироваться</a>
+    </form>
+</div>
+</body>
+</html>

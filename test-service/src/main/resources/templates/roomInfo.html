@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${room.roomName}"></h1>
+<a>Уникальный код вашей комнаты: <p th:text="${room.uniqueCode}"></p>. По нему ваши студенты могут зайти в нее и проходить ваши тесты .</a>
+<div th:each="user:${room.students}">
+    <p th:text="*{user.firstName}" ></p>
+    <p th:text="*{user.lastName}" ></p>
+    <p th:text="*{user.email}" ></p>
+</div>
+<div th:if="${user.getIsTeacher()}" >
+    <a th:href="@{/v1/test/createTest}" >Создать тест</a>
+</div>
+<div th:each="passTest:${tests}">
+    <p th:text="${passTest.name}"></p>
+    <a th:href="@{/v1/test/passTest/{uniqueTest}(uniqueTest=${passTest.uniqueCode})}">Пройти тест</a>
+    <a th:href="@{/v1/test/testUsers/{uniqueTest}(uniqueTest=${passTest.uniqueCode})}">Информация о прошедших тест </a>
+</div>
+</body>
+</html>

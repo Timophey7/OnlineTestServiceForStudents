@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/v1/test/saveTest}" th:object="${newTest}">
+    <div>
+        <label for="name">Введите названи теста.</label>
+        <input type="text" name="name" id="name" th:field="*{name}">
+        <p th:if="${#fields.hasErrors('name')}" th:error="*{name}"></p>
+    </div>
+    <input type="submit" value="Создать">
+</form>
+</body>
+</html>

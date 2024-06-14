@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/v1/test/comeInRoom}" method="post">
+    <div>
+        <label for="roomUniqueCode">Код комнаты:</label>
+        <input type="text" id="roomUniqueCode" name="roomUniqueCode" th:value="${roomUniqueCode}">
+    </div>
+    <button type="submit">Войти</button>
+</form>
+</body>
+</html>
