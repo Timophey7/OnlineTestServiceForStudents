@@ -12,9 +12,9 @@ spring:
   application:
     name: test-service
   datasource:
-    url: jdbc:postgresql://localhost:5433/test-service?user=postgres&password=test
-    username: postgres
-    password: test
+    url: jdbc:postgresql://localhost:5433/test-service
+    username: ${POSTGRES_PASSWORD}
+    password: ${POSTGRES_USER}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

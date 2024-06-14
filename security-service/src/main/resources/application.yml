@@ -11,9 +11,9 @@ spring:
   application:
     name: security-service
   datasource:
-    url: jdbc:postgresql://localhost:5433/security-service?user=postgres&password=test
-    username: postgres
-    password: test
+    url: jdbc:postgresql://localhost:5433/security-service
+    username: ${POSTGRES_PASSWORD}
+    password: ${POSTGRES_USER}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
